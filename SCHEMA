@@ -1,0 +1,152 @@
+Database Schema
+1. Core Entities and Attributes
+
+    Student
+        student_id (PK)
+        first_name
+        last_name
+        email (Unique)
+        phone
+        address
+        date_of_birth
+        enrollment_date
+        department_id (FK → Department.department_id)
+        advisor_id (FK → Advisor.advisor_id)
+        GPA
+        status (Active/Inactive)
+
+    Instructor
+        instructor_id (PK)
+        first_name
+        last_name
+        email (Unique)
+        phone
+        office_location
+        department_id (FK → Department.department_id)
+
+    Course
+        course_id (PK)
+        course_name
+        credits
+        department_id (FK → Department.department_id)
+        prerequisite_course_id (Nullable FK → Course.course_id)
+        semester_offered
+        max_enrollment
+        course_description
+
+    Department
+        department_id (PK)
+        department_name
+        head_of_department (FK → Instructor.instructor_id)
+
+    Enrollment
+        enrollment_id (PK)
+        student_id (FK → Student.student_id)
+        course_id (FK → Course.course_id)
+        semester
+        year
+        enrollment_status (Enrolled/Dropped/Waitlisted)
+        final_grade
+
+    Exam
+        exam_id (PK)
+        course_id (FK → Course.course_id)
+        exam_date
+        start_time
+        end_time
+        location
+
+    Exam Result
+        result_id (PK)
+        student_id (FK → Student.student_id)
+        exam_id (FK → Exam.exam_id)
+        score
+        status (Passed/Failed)
+
+2. Additional Entities
+
+    Classroom
+        classroom_id (PK)
+        building_name
+        room_number
+        capacity
+        resources (e.g., projector, whiteboard)
+
+    Advisor
+        advisor_id (PK)
+        instructor_id (FK → Instructor.instructor_id)
+        department_id (FK → Department.department_id)
+
+    Audit Log
+        log_id (PK)
+        action_performed
+        performed_by (FK → User.user_id)
+        timestamp
+        affected_table
+        old_value
+        new_value
+
+    Prerequisite
+        prerequisite_id (PK)
+        course_id (FK → Course.course_id)
+        prerequisite_course_id (FK → Course.course_id)
+
+    Schedule
+        schedule_id (PK)
+        course_id (FK → Course.course_id)
+        instructor_id (FK → Instructor.instructor_id)
+        classroom_id (FK → Classroom.classroom_id)
+        day_of_week (e.g., Monday, Wednesday)
+        start_time
+        end_time
+
+    User
+        user_id (PK)
+        username (Unique)
+        password_hash
+        email
+        role (Student, Instructor, Admin)
+        created_at
+
+    Notification
+        notification_id (PK)
+        recipient_id (FK → User.user_id)
+        message
+        timestamp
+        status (Read/Unread)
+
+3. Relationships
+
+    Student ↔ Advisor
+        A student has one advisor (Student.advisor_id → Advisor.advisor_id).
+        An advisor oversees multiple students.
+
+    Student ↔ Enrollment ↔ Course
+        A student can enroll in many courses (Enrollment.student_id → Student.student_id).
+        A course can have many students enrolled (Enrollment.course_id → Course.course_id).
+
+    Instructor ↔ Course
+        An instructor can teach multiple courses (Course.instructor_id → Instructor.instructor_id).
+
+    Course ↔ Department
+        A course belongs to one department (Course.department_id → Department.department_id).
+        A department offers multiple courses.
+
+    Course ↔ Prerequisite
+        A course can have one or more prerequisites (Prerequisite.course_id → Course.course_id).
+
+    Course ↔ Exam
+        A course can have multiple exams (Exam.course_id → Course.course_id).
+
+    Exam ↔ Exam Result ↔ Student
+        An exam is associated with multiple results (Exam Result.exam_id → Exam.exam_id).
+        A student can have multiple exam results (Exam Result.student_id → Student.student_id).
+
+    Schedule ↔ Course ↔ Classroom
+        A schedule links a course with an instructor and a classroom (Schedule.course_id, Schedule.instructor_id, Schedule.classroom_id).
+
+    Audit Log ↔ User
+        A user (student, instructor, or admin) can perform actions logged in the audit table (Audit Log.performed_by → User.user_id).
+
+    Notification ↔ User
+        Notifications are sent to users (Notification.recipient_id → User.user_id)
