@@ -1,0 +1,73 @@
+Here's the schema with data types and constraints:
+Core Tables
+Student
+Column Name	Data Type	Constraints
+student_id	INT	PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+first_name	VARCHAR(50)	NOT NULL
+last_name	VARCHAR(50)	NOT NULL
+email	VARCHAR(100)	NOT NULL, UNIQUE
+phone	VARCHAR(15)	NOT NULL, CHECK (phone REGEXP '^[0-9]{10,15}$')
+address	TEXT	NULL (Optional)
+date_of_birth	DATE	NOT NULL
+enrollment_date	DATE	NOT NULL
+department_id	INT	NOT NULL, FOREIGN KEY REFERENCES Department(department_id)
+advisor_id	INT	NULL, FOREIGN KEY REFERENCES Advisor(advisor_id)
+GPA	DECIMAL(3,2)	CHECK (GPA BETWEEN 0.00 AND 4.00)
+status	ENUM('Active', 'Inactive')	DEFAULT 'Active'
+Instructor
+Column Name	Data Type	Constraints
+instructor_id	INT	PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+first_name	VARCHAR(50)	NOT NULL
+last_name	VARCHAR(50)	NOT NULL
+email	VARCHAR(100)	NOT NULL, UNIQUE
+phone	VARCHAR(15)	NOT NULL, CHECK (phone REGEXP '^[0-9]{10,15}$')
+office_location	VARCHAR(100)	NOT NULL
+department_id	INT	NOT NULL, FOREIGN KEY REFERENCES Department(department_id)
+Course
+Column Name	Data Type	Constraints
+course_id	INT	PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+course_name	VARCHAR(100)	NOT NULL
+credits	INT	NOT NULL, CHECK (credits BETWEEN 1 AND 6)
+department_id	INT	NOT NULL, FOREIGN KEY REFERENCES Department(department_id)
+prerequisite_course_id	INT	NULL, FOREIGN KEY REFERENCES Course(course_id)
+semester_offered	ENUM('Spring', 'Fall', 'Summer')	NOT NULL
+max_enrollment	INT	NOT NULL, CHECK (max_enrollment > 0)
+course_description	TEXT	NULL
+Department
+Column Name	Data Type	Constraints
+department_id	INT	PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+department_name	VARCHAR(100)	NOT NULL, UNIQUE
+head_of_department	INT	NOT NULL, FOREIGN KEY REFERENCES Instructor(instructor_id)
+Enrollment
+Column Name	Data Type	Constraints
+enrollment_id	INT	PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+student_id	INT	NOT NULL, FOREIGN KEY REFERENCES Student(student_id)
+course_id	INT	NOT NULL, FOREIGN KEY REFERENCES Course(course_id)
+semester	ENUM('Spring', 'Fall', 'Summer')	NOT NULL
+year	YEAR	NOT NULL
+enrollment_status	ENUM('Enrolled', 'Dropped', 'Waitlisted')	DEFAULT 'Enrolled'
+final_grade	CHAR(2)	NULL, CHECK (final_grade IN ('A', 'B', 'C', 'D', 'F', 'W', 'I'))
+Exam
+Column Name	Data Type	Constraints
+exam_id	INT	PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+course_id	INT	NOT NULL, FOREIGN KEY REFERENCES Course(course_id)
+exam_date	DATE	NOT NULL
+start_time	TIME	NOT NULL
+end_time	TIME	NOT NULL
+location	VARCHAR(100)	NOT NULL
+Exam Result
+Column Name	Data Type	Constraints
+result_id	INT	PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+student_id	INT	NOT NULL, FOREIGN KEY REFERENCES Student(student_id)
+exam_id	INT	NOT NULL, FOREIGN KEY REFERENCES Exam(exam_id)
+score	DECIMAL(5,2)	NOT NULL, CHECK (score BETWEEN 0 AND 100)
+status	ENUM('Passed', 'Failed')	NOT NULL
+Audit Log
+Column Name	Data Type	Constraints
+log_id	INT	PRIMARY KEY, AUTO_INCREMENT, NOT NULL
+action_performed	VARCHAR(255)	NOT NULL
+performed_by	INT	NOT NULL, FOREIGN KEY REFERENCES User(user_id)
+timestamp	TIMESTAMP DEFAULT CURRENT_TIMESTAMP	NOT NULL
+affected_table	VARCHAR(50)	NOT NULL
+old_value	TEXT	NULL
+new_value	TEXT	NULL
