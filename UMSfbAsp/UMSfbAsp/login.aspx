@@ -23,7 +23,7 @@
             letter-spacing: 0px;
             color: rgb(255, 255, 255);
             text-shadow: 15px 15px 15px rgba(9, 0, 64, 0.7);
-            font-size: 3rem;
+            font-size: 4rem;
         }
 
         #background {
