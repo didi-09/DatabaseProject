@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UniversityApp
+namespace UMSfbAsp
 {
 
 
-    public partial class adminview
+    public partial class admin
     {
     }
 }
