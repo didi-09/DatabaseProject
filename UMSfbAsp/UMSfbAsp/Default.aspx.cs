@@ -21,7 +21,9 @@ namespace UMSfbAsp
 
         protected void btnSignup_Click(object sender, EventArgs e)
         {
-            Response.Redirect("signup.aspx");
+            Response.Redirect("Signup.aspx");
         }
+
     }
+
 }

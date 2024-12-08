@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System;
+using System.Text.RegularExpressions;
 
 namespace UMSfbAsp
 {
@@ -16,19 +17,30 @@ namespace UMSfbAsp
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string userEmail = email.Text;
+            string userPassword = txtPassword.Text;
 
-            // Replace with your authentication logic
-            if (username == "admin" && password == "password")
+            // Example logic to validate email and password
+            if (IsValidEmail(userEmail) && ValidateUser(userEmail, userPassword))
             {
-                Response.Redirect("dashboard.aspx");
+                // Redirect to dashboard or homepage
+                Response.Redirect("Dashboard.aspx");
             }
             else
             {
-                // Handle invalid login
-                Response.Write("<script>alert('Invalid username or password');</script>");
+                // Display an error message
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Invalid email or password.');", true);
             }
+        }
+        private bool IsValidEmail(string email)
+        {
+            return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+        }
+
+        private bool ValidateUser(string email, string password)
+        {
+            // Replace this with database validation
+            return email == "test@example.com" && password == "password123";
         }
 
     }

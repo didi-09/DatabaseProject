@@ -93,7 +93,7 @@
             margin-top: 20px;
             text-align: center;
             text-transform: uppercase;
-            color: #000033;
+            color: rgb(255, 255, 255);
             font-size: 16px;
             font-weight: bold;
             background-color: transparent;
@@ -170,9 +170,18 @@
 
     <div class="form-container">
         <form id="form1" runat="server">
-            <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" Placeholder="Student ID"></asp:TextBox>
+            <asp:TextBox ID="email" runat="server" CssClass="form-control" TextMode="Email" Placeholder="E-MAIL"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="emailValidator" runat="server" 
+                ControlToValidate="email" 
+                ErrorMessage="Please enter a valid email address." 
+                ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" 
+                ForeColor="Red">
+            </asp:RegularExpressionValidator>
             <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" Placeholder="Password"></asp:TextBox>
             <a href="Default.aspx" target="_self">Go Home?</a>
+            </br>
+            </br>
+            <a href="signup.aspx" target="_self">Signup</a>
             <div class="buttons">
                 <asp:Button ID="btnLogin" runat="server" CssClass="blob-btn" Text="Login" OnClick="btnLogin_Click" />
             </div>
