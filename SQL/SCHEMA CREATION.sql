@@ -1,0 +1,7 @@
+-- Create schemas
+--CREATE SCHEMA Library;
+--CREATE SCHEMA Clubs;
+--CREATE SCHEMA Academics;
+--CREATE SCHEMA Exams;
+--CREATE SCHEMA Finances;
+--CREATE SCHEMA Accounts;
