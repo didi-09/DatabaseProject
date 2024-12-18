@@ -83,9 +83,9 @@
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-toggle="collapse" href="#gradeManagement" role="button" aria-expanded="false" aria-controls="gradeManagement">Grade Management</a>
             <ul class="collapse category" id="gradeManagement">
-                <li><a href="grade_entry.html">Grade Entry</a></li>
-                <li><a href="grade_audit_log.html">Grade Audit Log</a></li>
-                <li><a href="gpa_calculation.html">GPA Calculation</a></li>
+                <li><a href="GpaEntry.aspx">Grade Entry</a></li>
+                <li><a href="GradeAuditLog.aspx">Grade Audit Log</a></li>
+                <li><a href="GpaCalculation.aspx">GPA Calculation</a></li>
             </ul>
         </li>
     </ul>

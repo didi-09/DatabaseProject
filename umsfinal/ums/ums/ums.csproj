@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AcademicAffairs.aspx" />
     <Content Include="admin-dashboard.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -124,13 +125,18 @@
     <Content Include="DepartmentDetails.aspx" />
     <Content Include="ExamResult.aspx" />
     <Content Include="ExamResultEntry.aspx" />
+    <Content Include="ExamScheduleStudent.aspx" />
     <Content Include="ExamScheduling.aspx" />
     <Content Include="ExamsSchedule.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="GpaCalculation.aspx" />
+    <Content Include="GpaEntry.aspx" />
+    <Content Include="GradeAuditLog.aspx" />
     <Content Include="InstructorDasshboard.aspx" />
     <Content Include="InstructorsDetails.aspx" />
     <Content Include="ManageRules.aspx" />
+    <Content Include="MyRequests.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -160,6 +166,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="smanagment.aspx" />
+    <Content Include="StudentDashboard.aspx" />
     <Content Include="StudentDetails.aspx" />
     <Content Include="StudentEnrollment.aspx" />
     <Content Include="StudentUpdate.aspx" />
@@ -201,6 +208,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademicAffairs.aspx.cs">
+      <DependentUpon>AcademicAffairs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcademicAffairs.aspx.designer.cs">
+      <DependentUpon>AcademicAffairs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin-dashboard.aspx.cs">
       <DependentUpon>admin-dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -259,6 +273,13 @@
     <Compile Include="ExamResultEntry.aspx.designer.cs">
       <DependentUpon>ExamResultEntry.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ExamScheduleStudent.aspx.cs">
+      <DependentUpon>ExamScheduleStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExamScheduleStudent.aspx.designer.cs">
+      <DependentUpon>ExamScheduleStudent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ExamScheduling.aspx.cs">
       <DependentUpon>ExamScheduling.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,6 +296,27 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GpaCalculation.aspx.cs">
+      <DependentUpon>GpaCalculation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GpaCalculation.aspx.designer.cs">
+      <DependentUpon>GpaCalculation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GpaEntry.aspx.cs">
+      <DependentUpon>GpaEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GpaEntry.aspx.designer.cs">
+      <DependentUpon>GpaEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GradeAuditLog.aspx.cs">
+      <DependentUpon>GradeAuditLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GradeAuditLog.aspx.designer.cs">
+      <DependentUpon>GradeAuditLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="InstructorDasshboard.aspx.cs">
       <DependentUpon>InstructorDasshboard.aspx</DependentUpon>
@@ -297,6 +339,13 @@
     <Compile Include="ManageRules.aspx.designer.cs">
       <DependentUpon>ManageRules.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MyRequests.aspx.cs">
+      <DependentUpon>MyRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyRequests.aspx.designer.cs">
+      <DependentUpon>MyRequests.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -318,6 +367,13 @@
     </Compile>
     <Compile Include="smanagment.aspx.designer.cs">
       <DependentUpon>smanagment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentDashboard.aspx.cs">
+      <DependentUpon>StudentDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentDashboard.aspx.designer.cs">
+      <DependentUpon>StudentDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentDetails.aspx.cs">
       <DependentUpon>StudentDetails.aspx</DependentUpon>

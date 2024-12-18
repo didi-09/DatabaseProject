@@ -13,7 +13,7 @@
             display: flex;
             height: 100vh;
         }
-       /*yaraaaaab 55555555*/
+       /*yaraaaaab 5555555566666666*/
 .sidebar {
     width: 250px;
     background-color: #060060;
@@ -175,14 +175,7 @@
                         <option value="Arts">Arts</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="gpa">GPA</label>
-                    <input type="number" step="0.01" id="gpa" name="gpa" min="0" max="4" required>
-                </div>
-                <div class="form-group">
-                    <label for="advisorId">Advisor ID</label>
-                    <input type="text" id="advisorId" name="advisorId">
-                </div>
+
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select id="status" name="status" required>
@@ -232,8 +225,6 @@
                 document.getElementById('email').value = savedData.email || '';
                 document.getElementById('phone').value = savedData.phone || '';
                 document.getElementById('department').value = savedData.department || '';
-                document.getElementById('gpa').value = savedData.gpa || '';
-                document.getElementById('advisorId').value = savedData.advisorId || '';
                 document.getElementById('status').value = savedData.status || '';
                 document.getElementById('address').value = savedData.address || '';
             }
@@ -247,8 +238,6 @@
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
                 department: document.getElementById('department').value,
-                gpa: document.getElementById('gpa').value,
-                advisorId: document.getElementById('advisorId').value,
                 status: document.getElementById('status').value,
                 address: document.getElementById('address').value
             };
@@ -284,18 +273,6 @@
             <a href="CourseDetails.aspx">
             <button class="btn">View Courses</button>
             </a>
-            <h3>Course Details Page</h3>
-            <p>Detailed view of a course, instructor(s), schedule, location, and enrolled students.</p>
-            <button class="btn">View Course Details</button>
-            <h3>Available Courses Page</h3>
-            <p>For students to browse and select courses to enroll in.</p>
-            <button class="btn">Browse Courses</button>
-            <h3>Course Enrollment Page</h3>
-            <p>Admin/instructor view of enrolled students for a course with options to remove students or adjust enrollments.</p>
-            <button class="btn">Manage Enrollments</button>
-            <h3>Course Status Page</h3>
-            <p>View and manage under-enrolled courses with the option to cancel or reschedule.</p>
-            <button class="btn">Manage Course Status</button>
         </div>
 
         <div id="instructorManagement" class="section">
